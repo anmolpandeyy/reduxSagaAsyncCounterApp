@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
+import { increaseCounter, decreaseCounter } from "./actions/actions";
 
 class CounterApp extends Component {
   render() {
-    console.log(this.props);
     return (
       <View style={styles.container}>
         <View style={{ flexDirection: "row" }}>
@@ -27,8 +27,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  increaseCounter: () => dispatch({ type: "INCREASE_COUNTER" }),
-  decreaseCounter: () => dispatch({ type: "DECREASE_COUNTER" })
+  increaseCounter: () => dispatch(increaseCounter()),
+  decreaseCounter: () => dispatch(decreaseCounter())
 });
 
 export default connect(

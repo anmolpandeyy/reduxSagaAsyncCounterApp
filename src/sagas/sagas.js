@@ -1,4 +1,4 @@
-import { takeEvery, put } from "redux-saga/effects";
+import { takeLatest, put } from "redux-saga/effects";
 import { delay } from "redux-saga";
 
 function* counterUpAsync() {
@@ -12,9 +12,9 @@ function* counterDownAsync() {
 }
 
 export function* watchCounterUp() {
-  yield takeEvery("INCREASE_COUNTER", counterUpAsync);
+  yield takeLatest("INCREASE_COUNTER", counterUpAsync);
 }
 
 export function* watchCounterDown() {
-  yield takeEvery("DECREASE_COUNTER", counterDownAsync);
+  yield takeLatest("DECREASE_COUNTER", counterDownAsync);
 }
